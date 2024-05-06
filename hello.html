@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+  </head>
 
-  <title>Document</title>
-  <link rel="stylesheet" href="css/bootstrap.css">
-</head>
+  <body>
+    <div id="root"></div>
+    <script src="react/react.js"></script>
+    <script src="react/react-dom.js"></script>
+    <script src="react/babel.js"></script>
+    <script type="text/babel">
+      function App() {
+        return (
+          <div>
+            <Counter count={3} />
+          </div>
+        );
+      }
 
-<body>
-  <div id="root"></div>
-  <script src="react/react.js"></script>
-  <script src="react/react-dom.js"></script>
-  <script src="react/babel.js"></script>
-  <script type="text/babel">
+      function Counter(lims) {
+        return (
+          <div>
+            <p>Counter = {lims.count}</p>
+          </div>
+        );
+      }
 
-    function App() {
-      return (
-        <div>
-          <Counter count={3} />
-        </div>
-      );
-    }
-
-    function Counter({ count }) {
-      return (
-        <div>
-          <p>Counter = {count}</p>
-        </div>
-      );
-    }
-
-    ReactDOM.render(<App />, document.getElementById('root'));
-  </script>
-</body>
-
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
 </html>
