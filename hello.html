@@ -16,14 +16,19 @@
   <script type="text/babel">
 
     function App() {
-      return <div>
-        <Greetings />
-        <Greetings />
-      </div>
+      return (
+        <div>
+          <Counter count={3} />
+        </div>
+      );
     }
 
-    function Greetings() {
-      return <h2 className="alert alert-danger"><marquee bgcolor="" behavior="" direction="right">Hello Daffy Duck</marquee></h2>;
+    function Counter({ count }) {
+      return (
+        <div>
+          <p>Counter = {count}</p>
+        </div>
+      );
     }
 
     ReactDOM.render(<App />, document.getElementById('root'));
