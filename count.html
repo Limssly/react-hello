@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
   </head>
   <body>
     <div id="root"></div>
@@ -12,25 +9,50 @@
     <script src="react/react-dom.js"></script>
     <script src="react/babel.js"></script>
     <script type="text/babel">
-
-function App() {
-      return (
-        <div>
-          <Counter count={3} />
-        </div>
-      );
-    }
-    
-      function Counter() {
-        const [count, setCount] = React.useState(0);
+      function App() {
         return (
           <div>
-            <p>Counter = {count}</p>
-            <button onClick={() => setCount(count + 1)}>Increment</button>
+            <MyForm />
           </div>
         );
       }
-      ReactDOM.render(<App />, document.getElementById('root'));
+
+      function MyForm() {
+        const [texte, setTexte] = React.useState("Daffy");
+        const [texte1, setTexte1] = React.useState("DUCK");
+        
+        const champModifie = event => {
+          setTexte(event.target.value);
+        };
+        const handleSubmit = event => {
+          alert(`Bonjour ${texte} ${texte1}`);
+          event.preventDefault();
+        };
+        return (
+          <form onSubmit={handleSubmit} >
+            <div class="form-group">
+              <label>Prénom</label>
+              <div>
+                <input type="text" readonly class="col-sm-10" value={texte} />
+              </div>
+              <small class="form-text text-muted"></small>
+            </div>
+            <br/>
+            <div class="form-group">
+              <label>Nom</label>
+              <div>
+                <input type="text" class="col-sm-10" value={texte1} />
+              </div>
+              <small class="form-text text-muted">Tout en majuscule !</small>
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+          
+        );
+      }
+      ReactDOM.render(<App />, document.getElementById("root"));
     </script>
   </body>
 </html>
